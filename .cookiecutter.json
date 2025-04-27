@@ -1,0 +1,30 @@
+{
+    "cookiecutter": {
+        "codeowner_github_usernames": "\\angelopoggi",
+        "full_name": "Angelo Poggi",
+        "email": "angelo.poggi@networktocode.com",
+        "github_org": "Network to Code, LLC",
+        "app_name": "frame_surfer",
+        "verbose_name": "Frame Surfer",
+        "app_slug": "frame-surfer",
+        "project_slug": "nautobot-app-frame-surfer",
+        "repo_url": "https://github.com/angelopoggi/nautobot-app-frame-surfer",
+        "base_url": "frame-surfer",
+        "min_nautobot_version": "2.0.0",
+        "max_nautobot_version": "2.9999",
+        "camel_name": "FrameSurfer",
+        "project_short_description": "Frame Surfer",
+        "model_class_name": "FrameSurferExampleModel",
+        "open_source_license": "Apache-2.0",
+        "docs_base_url": "https://docs.nbframesurfer.com",
+        "docs_app_url": "https://docs.nbframesurfer.com/projects/frame-surfer/en/latest",
+        "_extensions": [
+            "local_extensions.camel_case_to_kebab",
+            "local_extensions.camel_case_to_words"
+        ],
+        "_template": "https://github.com/nautobot/cookiecutter-nautobot-app",
+        "_output_dir": "/Users/angelo/PycharmProjects/NautbotFrameSurfer",
+        "_repo_dir": "/Users/angelo/.cookiecutters/cookiecutter-nautobot-app/nautobot-app",
+        "_checkout": null
+    }
+}
