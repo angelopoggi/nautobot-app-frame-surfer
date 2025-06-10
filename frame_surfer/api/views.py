@@ -6,12 +6,22 @@ from frame_surfer import filters, models
 from frame_surfer.api import serializers
 
 
-class FrameSurferExampleModelViewSet(NautobotModelViewSet):  # pylint: disable=too-many-ancestors
+class FrameSurferFrameTVModelViewSet(NautobotModelViewSet):  # pylint: disable=too-many-ancestors
     """FrameSurferExampleModel viewset."""
 
-    queryset = models.FrameSurferExampleModel.objects.all()
-    serializer_class = serializers.FrameSurferExampleModelSerializer
-    filterset_class = filters.FrameSurferExampleModelFilterSet
+    queryset = models.FrameTV.objects.all()
+    serializer_class = serializers.FrameSurferFrameTVModelSerializer
+    filterset_class = filters.FrameSurferFrameTVModelFilterSet
+
+    # Option for modifying the default HTTP methods:
+    # http_method_names = ["get", "post", "put", "patch", "delete", "head", "options", "trace"]
+
+class FrameSurferUnsplashModelViewSet(NautobotModelViewSet):  # pylint: disable=too-many-ancestors
+    """UnsplashModel viewset."""
+
+    queryset = models.UnsplashModel.objects.all()
+    serializer_class = serializers.UnsplashModelSerializer
+    filterset_class = filters.FrameSurferUnsplashModelFilterSet
 
     # Option for modifying the default HTTP methods:
     # http_method_names = ["get", "post", "put", "patch", "delete", "head", "options", "trace"]

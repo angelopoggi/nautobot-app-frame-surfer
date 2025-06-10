@@ -4,14 +4,26 @@ from nautobot.apps.filters import NameSearchFilterSet, NautobotFilterSet
 
 from frame_surfer import models
 
-
-class FrameSurferExampleModelFilterSet(NameSearchFilterSet, NautobotFilterSet):  # pylint: disable=too-many-ancestors
+# FRAME SURFER MODEL FILTER SET
+class FrameSurferFrameTVModelFilterSet(NameSearchFilterSet, NautobotFilterSet):  # pylint: disable=too-many-ancestors
     """Filter for FrameSurferExampleModel."""
 
     class Meta:
         """Meta attributes for filter."""
 
-        model = models.FrameSurferExampleModel
+        model = models.FrameTV
+
+        # add any fields from the model that you would like to filter your searches by using those
+        fields = "__all__"
+
+#UNSPLASH MODEL FILTER SET
+class FrameSurferUnsplashModelFilterSet(NameSearchFilterSet, NautobotFilterSet):
+    """Filter for UnsplashModel."""
+
+    class Meta:
+        """Meta attributes for filter."""
+
+        model = models.UnsplashModel
 
         # add any fields from the model that you would like to filter your searches by using those
         fields = "__all__"

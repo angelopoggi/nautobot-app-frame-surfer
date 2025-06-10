@@ -5,21 +5,21 @@ from nautobot.apps.forms import NautobotBulkEditForm, NautobotFilterForm, Nautob
 
 from frame_surfer import models
 
-
-class FrameSurferExampleModelForm(NautobotModelForm):  # pylint: disable=too-many-ancestors
+# Frame TV MODEL FORMS
+class FrameSurferFrameTVModelForm(NautobotModelForm):  # pylint: disable=too-many-ancestors
     """FrameSurferExampleModel creation/edit form."""
 
     class Meta:
         """Meta attributes."""
 
-        model = models.FrameSurferExampleModel
+        model = models.FrameTV
         fields = "__all__"
 
 
-class FrameSurferExampleModelBulkEditForm(TagsBulkEditFormMixin, NautobotBulkEditForm):  # pylint: disable=too-many-ancestors
+class FrameSurferFrameTVModelBulkEditForm(TagsBulkEditFormMixin, NautobotBulkEditForm):  # pylint: disable=too-many-ancestors
     """FrameSurferExampleModel bulk edit form."""
 
-    pk = forms.ModelMultipleChoiceField(queryset=models.FrameSurferExampleModel.objects.all(), widget=forms.MultipleHiddenInput)
+    pk = forms.ModelMultipleChoiceField(queryset=models.FrameTV.objects.all(), widget=forms.MultipleHiddenInput)
     description = forms.CharField(required=False)
 
     class Meta:
@@ -30,10 +30,46 @@ class FrameSurferExampleModelBulkEditForm(TagsBulkEditFormMixin, NautobotBulkEdi
         ]
 
 
-class FrameSurferExampleModelFilterForm(NautobotFilterForm):
+class FrameSurferFrameTVModelFilterForm(NautobotFilterForm):
     """Filter form to filter searches."""
 
-    model = models.FrameSurferExampleModel
+    model = models.FrameTV
+    field_order = ["q", "name"]
+
+    q = forms.CharField(
+        required=False,
+        label="Search",
+        help_text="Search within Name.",
+    )
+    name = forms.CharField(required=False, label="Name")
+
+# UNSPLASH MODEL FORMS
+class FrameSurferUnsplashModelForm(NautobotModelForm):  # pylint: disable=too-many-ancestors
+    """UnsplashModel creation/edit form."""
+
+    class Meta:
+        """Meta attributes."""
+
+        model = models.UnsplashModel
+        fields = "__all__"
+
+class FrameSurferUnsplashModelBulkEditForm(TagsBulkEditFormMixin, NautobotBulkEditForm):  # pylint: disable=too-many-ancestors
+    """UnsplashModel bulk edit form."""
+
+    pk = forms.ModelMultipleChoiceField(queryset=models.UnsplashModel.objects.all(), widget=forms.MultipleHiddenInput)
+    name = forms.CharField(required=False)
+
+    class Meta:
+        """Meta attributes."""
+
+        nullable_fields = [
+            "name",
+        ]
+
+class FrameSurferUnsplashModelFilterForm(NautobotFilterForm):
+    """Filter form to filter searches."""
+
+    model = models.UnsplashModel
     field_order = ["q", "name"]
 
     q = forms.CharField(

@@ -6,14 +6,14 @@ from nautobot.apps.tables import BaseTable, ButtonsColumn, ToggleColumn
 from frame_surfer import models
 
 
-class FrameSurferExampleModelTable(BaseTable):
+class FrameSurferFrameTVModelTable(BaseTable):
     # pylint: disable=R0903
     """Table for list view."""
 
     pk = ToggleColumn()
     name = tables.Column(linkify=True)
     actions = ButtonsColumn(
-        models.FrameSurferExampleModel,
+        models.FrameTV,
         # Option for modifying the default action buttons on each row:
         # buttons=("changelog", "edit", "delete"),
         # Option for modifying the pk for the action buttons:
@@ -23,7 +23,7 @@ class FrameSurferExampleModelTable(BaseTable):
     class Meta(BaseTable.Meta):
         """Meta attributes."""
 
-        model = models.FrameSurferExampleModel
+        model = models.FrameTV
         fields = (
             "pk",
             "name",
@@ -36,3 +36,27 @@ class FrameSurferExampleModelTable(BaseTable):
         #     "name",
         #     "description",
         # )
+
+class FrameSurferUnsplashModelTable(BaseTable):
+    """Table for UnsplashModel list view."""
+
+    pk = ToggleColumn()
+    name = tables.Column(linkify=True)
+    actions = ButtonsColumn(
+        models.UnsplashModel,
+        # Option for modifying the default action buttons on each row:
+        # buttons=("changelog", "edit", "delete"),
+        # Option for modifying the pk for the action buttons:
+        pk_field="pk",
+    )
+
+    class Meta(BaseTable.Meta):
+        """Meta attributes."""
+
+        model = models.UnsplashModel
+        fields = (
+            "pk",
+            "name",
+            "url",
+            "oauth_token",
+        )

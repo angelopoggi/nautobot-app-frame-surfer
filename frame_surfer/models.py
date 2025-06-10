@@ -32,3 +32,38 @@ class FrameSurferExampleModel(PrimaryModel):  # pylint: disable=too-many-ancesto
     def __str__(self):
         """Stringify instance."""
         return self.name
+
+@extras_features("custom_links", "custom_validators", "export_templates", "graphql", "webhooks")
+class UnsplashModel(PrimaryModel):
+    name = models.CharField(max_length=256, unique=True)
+    url = models.URLField()
+    oauth_token = models.CharField(max_length=256)
+
+    def __str__(self):
+        return self.name
+
+@extras_features("custom_links", "custom_validators", "export_templates", "graphql", "webhooks")
+class FrameTV(PrimaryModel):
+    name = models.CharField(max_length=256, unique=True)
+    ip_address = models.GenericIPAddressField(protocol="both", blank=True, null=True)
+    api_service = models.ForeignKey(UnsplashModel, on_delete=models.CASCADE, related_name="api_service")
+    topics = models.TextField(help_text="Comma-sperated list of topcis", blank=True, null=True)
+    matte_options = models.CharField(max_length=256, blank=True)
+
+    class Meta:
+        """Meta class."""
+
+        ordering = ["name"]
+
+    def __str__(self):
+        return self.name
+
+@extras_features("custom_links", "custom_validators", "export_templates", "graphql", "webhooks")
+class PhotoModel(PrimaryModel):
+    name = models.CharField(max_length=256, unique=True)
+    downloaded_at = models.DateTimeField(auto_now=True)
+    url = models.URLField()
+    tv = models.ForeignKey(FrameTV, on_delete=models.CASCADE, related_name='photos')
+
+    def __str__(self):
+        return self.name

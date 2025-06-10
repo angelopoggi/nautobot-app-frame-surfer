@@ -6,7 +6,8 @@ from frame_surfer.api import views
 
 router = OrderedDefaultRouter()
 # add the name of your api endpoint, usually hyphenated model name in plural, e.g. "my-model-classes"
-router.register("frame-surfer-example-models", views.FrameSurferExampleModelViewSet)
+router.register("frame-surfer", views.FrameSurferFrameTVModelViewSet)
+router.register("unsplash", views.FrameSurferUnsplashModelViewSet)
 
 app_name = "frame_surfer-api"
 urlpatterns = router.urls
