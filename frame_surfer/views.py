@@ -30,6 +30,18 @@ class FrameSurferUnsplashModelUIViewSet(NautobotUIViewSet):
     serializer_class = serializers.UnsplashModelSerializer
     table_class = tables.FrameSurferUnsplashModelTable
 
+class FrameSurferPhotoModelUIViewSet(NautobotUIViewSet):
+    """ViewSet for FrameSurferPhotoModel views."""
+
+    bulk_update_form_class = forms.FrameSurferPhotoModelBulkEditForm
+    filterset_class = filters.FrameSurferPhotoModelFilterSet
+    filterset_form_class = forms.FrameSurferPhotoModelFilterForm
+    form_class = forms.FrameSurferPhotoModelForm
+    lookup_field = "pk"
+    queryset = models.PhotoModel.objects.all()
+    serializer_class = serializers.FrameSurferPhotoModelSerializer
+    table_class = tables.FrameSurferPhotoModelTable
+
 
 # class AddAPIServiceView(NautobotView):
 #     template_name = 'frame_surfer/add_api_service.html'

@@ -78,3 +78,39 @@ class FrameSurferUnsplashModelFilterForm(NautobotFilterForm):
         help_text="Search within Name.",
     )
     name = forms.CharField(required=False, label="Name")
+
+# PhotoModel FORMS
+class FrameSurferPhotoModelForm(NautobotModelForm):  # pylint: disable=too-many-ancestors
+    """PhotoModel creation/edit form."""
+
+    class Meta:
+        """Meta attributes."""
+
+        model = models.PhotoModel
+        fields = "__all__"
+
+class FrameSurferPhotoModelBulkEditForm(TagsBulkEditFormMixin, NautobotBulkEditForm):  # pylint: disable=too-many-ancestors
+    """PhotoModel bulk edit form."""
+
+    pk = forms.ModelMultipleChoiceField(queryset=models.PhotoModel.objects.all(), widget=forms.MultipleHiddenInput)
+    name = forms.CharField(required=False)
+
+    class Meta:
+        """Meta attributes."""
+
+        nullable_fields = [
+            "name",
+        ]
+
+class FrameSurferPhotoModelFilterForm(NautobotFilterForm):
+    """Filter form to filter searches."""
+
+    model = models.PhotoModel
+    field_order = ["q", "name"]
+
+    q = forms.CharField(
+        required=False,
+        label="Search",
+        help_text="Search within Name.",
+    )
+    name = forms.CharField(required=False, label="Name")

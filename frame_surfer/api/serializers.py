@@ -10,7 +10,7 @@ class FrameSurferExampleModelSerializer(NautobotModelSerializer, TaggedModelSeri
         model = models.FrameSurferExampleModel
         fields = "__all__"
 
-class PhotoModelSerializer(NautobotModelSerializer, TaggedModelSerializerMixin):
+class FrameSurferPhotoModelSerializer(NautobotModelSerializer, TaggedModelSerializerMixin):
     """PhotoModel Serializer."""
 
     class Meta:

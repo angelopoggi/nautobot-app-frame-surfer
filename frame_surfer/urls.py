@@ -18,6 +18,8 @@ router = NautobotUIViewSetRouter()
 router = NautobotUIViewSetRouter()
 router.register(r'frame-tv', views.FrameSurferFrameTVModelUIViewSet, basename='frametv')
 router.register(r'unsplashmodel', views.FrameSurferUnsplashModelUIViewSet, basename='unsplashmodel')
+router.register(r'photosmodel', views.FrameSurferPhotoModelUIViewSet, basename='photosmodel')
+
 
 urlpatterns = [
     path("docs/", RedirectView.as_view(url=static("frame_surfer/docs/index.html")), name="docs"),

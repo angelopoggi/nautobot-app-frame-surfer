@@ -65,5 +65,11 @@ class PhotoModel(PrimaryModel):
     url = models.URLField()
     tv = models.ForeignKey(FrameTV, on_delete=models.CASCADE, related_name='photos')
 
+    class Meta:
+        """Meta class."""
+
+        ordering = ["name"]
+
     def __str__(self):
         return self.name
+

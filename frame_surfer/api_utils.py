@@ -2,12 +2,14 @@ import datetime
 
 import requests
 from PIL import Image
+# we save a new photo to the database
 from .models import PhotoModel
 from samsungtvws import SamsungTVWS
 
 class UnSplash:
-    def __init__(self, tv_object):
+    def __init__(self, tv_object, unsplash_object):
         self.tv = tv_object
+        self.unsplash = unsplash_object
     def _resize_image(self, image_path):
         # Open the image
         img = Image.open(image_path)
@@ -38,14 +40,15 @@ class UnSplash:
         # Save the image
         resized_img.save(image_path)
 
-    def fetch_random(self, file_path):
+# we can save the file locally
+    def fetch_random(self):
         '''
         Fetches a random photo link for download
         :return:
         '''
         url = 'https://api.unsplash.com/photos/random/?w=3840&h=2160&topics=WdChqlsJN9c,6sMVjTLSkeQ&content_filter=high&orientation=landscape'
         header = {
-            "Authorization": f"Client-ID {self.tv.api_service.oauth_token}"
+            "Authorization": f"Client-ID {self.unsplash_object.oauth_token}"
         }
         # params = {
         #     'orientation' : 'landscape',
@@ -58,7 +61,8 @@ class UnSplash:
                                 )
         if response.status_code == 200:
             data = response.json()
-            #download file
+            # Save metadata about the photo into the database
+            # This way we can
             with requests.get(data['links']['download'],stream=True) as download_response:
                 with open(f"{file_path}/{data['id']}.jpg", 'wb') as file:
                     #save information about the photo
@@ -66,7 +70,7 @@ class UnSplash:
                         name=data['id'],
                         downloaded_at=datetime.datetime.now(),
                         url=data['urls']['raw'],
-                        tv=self.tv
+                        tv=self.tv_object,
                     )
                     photo.save()
                     for chunk in download_response.iter_content(1024):

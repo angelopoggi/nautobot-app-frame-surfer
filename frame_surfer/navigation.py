@@ -16,12 +16,23 @@ items = (
     ),
     NavMenuItem(
         link="plugins:frame_surfer:unsplashmodel_list",
-        name="Unsplash Model",
+        name="Unsplash",
         permissions=["frame_surfer.view_unsplashmodel"],
         buttons=(
             NavMenuAddButton(
                 link="plugins:frame_surfer:unsplashmodel_add",
                 permissions=["frame_surfer.add_unsplashmodel"],
+            ),
+        ),
+    ),
+    NavMenuItem(
+        link="plugins:frame_surfer:photosmodel_list",
+        name="Photos",
+        permissions=["frame_surfer.view_photosmodel"],
+        buttons=(
+            NavMenuAddButton(
+                link="plugins:frame_surfer:photosmodel_add",
+                permissions=["frame_surfer.add_photosmodel"],
             ),
         ),
     ),

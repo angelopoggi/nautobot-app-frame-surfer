@@ -27,3 +27,15 @@ class FrameSurferUnsplashModelFilterSet(NameSearchFilterSet, NautobotFilterSet):
 
         # add any fields from the model that you would like to filter your searches by using those
         fields = "__all__"
+
+#PhotoModel Filter Set
+class FrameSurferPhotoModelFilterSet(NameSearchFilterSet, NautobotFilterSet):
+    """Filter for PhotoModel."""
+
+    class Meta:
+        """Meta attributes for filter."""
+
+        model = models.PhotoModel
+
+        # add any fields from the model that you would like to filter your searches by using those
+        fields = "__all__"

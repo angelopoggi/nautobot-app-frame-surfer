@@ -52,7 +52,7 @@ namespace = Collection("frame_surfer")
 namespace.configure(
     {
         "frame_surfer": {
-            "nautobot_ver": "2.3.1",
+            "nautobot_ver": "2.3.16",
             "project_name": "frame-surfer",
             "python_ver": "3.11",
             "local": False,
