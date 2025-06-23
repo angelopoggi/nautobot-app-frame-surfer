@@ -62,7 +62,8 @@ class FrameTV(PrimaryModel):
 class PhotoModel(PrimaryModel):
     name = models.CharField(max_length=256, unique=True)
     downloaded_at = models.DateTimeField(auto_now=True)
-    url = models.URLField()
+    thumbnail = models.CharField(max_length=512, blank=True, null=True, help_text="Path to thumbnail image")
+    url = models.CharField(max_length=512, help_text="URL to the original photo")
     tv = models.ForeignKey(FrameTV, on_delete=models.CASCADE, related_name='photos')
 
     class Meta:
