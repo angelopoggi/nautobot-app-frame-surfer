@@ -18,7 +18,7 @@ router = NautobotUIViewSetRouter()
 router = NautobotUIViewSetRouter()
 router.register(r'frame-tv', views.FrameSurferFrameTVModelUIViewSet, basename='frametv')
 router.register(r'unsplashmodel', views.FrameSurferUnsplashModelUIViewSet, basename='unsplashmodel')
-router.register(r'photosmodel', views.FrameSurferPhotoModelUIViewSet, basename='photosmodel')
+router.register(r'photomodel', views.FrameSurferPhotoModelUIViewSet, basename='photomodel')
 
 
 urlpatterns = [

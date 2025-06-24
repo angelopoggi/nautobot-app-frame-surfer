@@ -28,6 +28,8 @@ class FrameSurferFrameTVModelTable(BaseTable):
             "pk",
             "name",
             "description",
+            "api_service",
+            "ip_address",
         )
 
         # Option for modifying the columns that show up in the list view by default:
@@ -57,8 +59,6 @@ class FrameSurferUnsplashModelTable(BaseTable):
         fields = (
             "pk",
             "name",
-            "url",
-            "oauth_token",
         )
 
 class FrameSurferPhotoModelTable(BaseTable):
@@ -66,13 +66,13 @@ class FrameSurferPhotoModelTable(BaseTable):
 
     pk = ToggleColumn()
     name = tables.Column(linkify=False)
-    # actions = ButtonsColumn(
-    #     models.PhotoModel,
-    #     # Option for modifying the default action buttons on each row:
-    #     # buttons=("changelog", "edit", "delete"),
-    #     # Option for modifying the pk for the action buttons:
-    #     pk_field="pk",
-    # )
+    actions = ButtonsColumn(
+        models.PhotoModel,
+        # Option for modifying the default action buttons on each row:
+        # buttons=("changelog", "edit", "delete"),
+        # Option for modifying the pk for the action buttons:
+        pk_field="pk",
+    )
 
     class Meta(BaseTable.Meta):
         """Meta attributes."""
@@ -84,4 +84,5 @@ class FrameSurferPhotoModelTable(BaseTable):
             "url",
             "downloaded_at",
             "tv",
+            "tv_file_name",
         )

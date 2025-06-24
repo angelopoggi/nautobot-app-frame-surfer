@@ -9,6 +9,8 @@ import datetime
 from urllib.parse import urlparse, urlunparse, quote
 from django.conf import settings
 import os
+from nautobot.extras.models import SecretsGroup
+from nautobot.extras.choices import SecretsGroupAccessTypeChoices, SecretsGroupSecretTypeChoices
 
 class FetchRandomJob(Job):
     """
@@ -31,6 +33,11 @@ class FetchRandomJob(Job):
     push_to_tv = BooleanVar(
         default=True,
         description="Push the photo to the TV",
+        required=False,
+    )
+    set_picture = BooleanVar(
+        default=True,
+        description="Marks the photo as the current picture on the TV",
         required=False,
     )
 
@@ -79,13 +86,18 @@ class FetchRandomJob(Job):
         self.logger.info(f"Directory exists: {path}")
 
 
-    def run(self, *, unsplash,tv,push_to_tv, **kwargs):
+    def run(self, *, unsplash,tv,push_to_tv,set_picture, **kwargs):
         """Run the job."""
-        #Step 1 Download a Photo from Unsplash
+        # Get our Access Key
+        secrets_group = SecretsGroup.objects.get(name=unsplash.access_key.name)
+        access_key = secrets_group.get_secret_value(
+            access_type=SecretsGroupAccessTypeChoices.TYPE_GENERIC,
+            secret_type=SecretsGroupSecretTypeChoices.TYPE_TOKEN
+        )
         #Fix this to be dynamic later
         url = 'https://api.unsplash.com/photos/random/?w=3840&h=2160&topics=WdChqlsJN9c,6sMVjTLSkeQ&content_filter=high&orientation=landscape'
         header = {
-            "Authorization": f"Client-ID {unsplash.oauth_token}"
+            "Authorization": f"Client-ID {access_key}"
         }
         response = requests.get(url,
                                 headers=header,
@@ -96,13 +108,7 @@ class FetchRandomJob(Job):
         data = response.json()
         # Save to Model
         normalized_url = self._normalize_url(data['urls']['raw'])
-        photo = PhotoModel.objects.create(
-            name=data['id'],
-            downloaded_at=datetime.datetime.now(),
-            url=normalized_url,
-            tv=tv,
-        )
-        photo.validated_save()
+
         # we need to get the download location from the response
         img_response = requests.get(f"{data['links']['download_location']}", headers=header)
         img_response.raise_for_status()
@@ -125,14 +131,27 @@ class FetchRandomJob(Job):
             #Step 2 Resize the Photo to 16:9 aspect ratio
             self.logger.info(f"Resizing photo {data['id']} to 16:9 aspect ratio")
             resized_image = self._resize_image(f"{path}/{data['id']}.jpg")
+            self.logger.info(f"{resized_image}")
+            self.logger.info(type(resized_image))
             #Step 3 Push the Photo to the TV
             self.logger.info(f"Pushing photo {data['id']} to TV {tv.name}")
-            frame_tv = FrameTV(tv.ip_address)
-            uploaded_file = frame_tv.send_to_tv(resized_image)
+            frame_tv = FrameSurfer(tv.ip_address)
+            uploaded_file = frame_tv.send_to_tv(f"{path}/{data['id']}.jpg")
+        if set_picture:
             self.logger.info(f"Setting photo {data['id']} on TV {tv.name} at {uploaded_file}")
             frame_tv.set_picture(uploaded_file)
             #For now, we will just log that we pushed the photo
             self.logger.info(f"Pushed photo {data['id']} to TV {tv.name}")
+        # save it all to the database
+        photo = PhotoModel.objects.create(
+            name=data['id'],
+            downloaded_at=datetime.datetime.now(),
+            url=normalized_url,
+            tv=tv,
+            tv_file_name=uploaded_file
+        )
+        photo.validated_save()
+
 
 
 jobs = [FetchRandomJob]

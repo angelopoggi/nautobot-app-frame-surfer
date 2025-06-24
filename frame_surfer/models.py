@@ -5,6 +5,7 @@ from django.db import models
 
 # Nautobot imports
 from nautobot.apps.models import PrimaryModel, extras_features
+from nautobot.extras.models import SecretsGroup
 
 # If you want to choose a specific model to overload in your class declaration, please reference the following documentation:
 # how to chose a database model: https://docs.nautobot.com/projects/core/en/stable/plugins/development/#database-models
@@ -37,7 +38,7 @@ class FrameSurferExampleModel(PrimaryModel):  # pylint: disable=too-many-ancesto
 class UnsplashModel(PrimaryModel):
     name = models.CharField(max_length=256, unique=True)
     url = models.URLField()
-    oauth_token = models.CharField(max_length=256)
+    access_key = models.ForeignKey(SecretsGroup, on_delete=models.PROTECT, related_name="access_token", blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -65,6 +66,7 @@ class PhotoModel(PrimaryModel):
     thumbnail = models.CharField(max_length=512, blank=True, null=True, help_text="Path to thumbnail image")
     url = models.CharField(max_length=512, help_text="URL to the original photo")
     tv = models.ForeignKey(FrameTV, on_delete=models.CASCADE, related_name='photos')
+    tv_file_name = models.CharField(max_length=512, blank=True, null=True, help_text="Path to the file on the TV")
 
     class Meta:
         """Meta class."""

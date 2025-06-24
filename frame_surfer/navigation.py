@@ -5,7 +5,7 @@ from nautobot.apps.ui import NavMenuAddButton, NavMenuGroup, NavMenuItem, NavMen
 items = (
     NavMenuItem(
         link="plugins:frame_surfer:frametv_list",
-        name="Frame Surfer",
+        name="Frame TVs",
         permissions=["frame_surfer.view_frametv"],
         buttons=(
             NavMenuAddButton(
@@ -26,13 +26,13 @@ items = (
         ),
     ),
     NavMenuItem(
-        link="plugins:frame_surfer:photosmodel_list",
+        link="plugins:frame_surfer:photomodel_list",
         name="Photos",
-        permissions=["frame_surfer.view_photosmodel"],
+        permissions=["frame_surfer.view_photomodel"],
         buttons=(
             NavMenuAddButton(
-                link="plugins:frame_surfer:photosmodel_add",
-                permissions=["frame_surfer.add_photosmodel"],
+                link="plugins:frame_surfer:photomodel_add",
+                permissions=["frame_surfer.add_photomodel"],
             ),
         ),
     ),
@@ -40,7 +40,7 @@ items = (
 
 menu_items = (
     NavMenuTab(
-        name="Apps",
+        name="Frame Surfer",
         groups=(NavMenuGroup(name="Frame Surfer", items=tuple(items)),),
     ),
 )
