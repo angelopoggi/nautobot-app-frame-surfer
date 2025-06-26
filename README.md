@@ -10,7 +10,7 @@ To avoid extra work and temporary links, make sure that publishing docs (or merg
 -->
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Network to Code, LLC/nautobot-app-frame-surfer/develop/docs/images/icon-frame-surfer.png" class="logo" height="200px">
+  <img src="https://raw.githubusercontent.com/angelopoggi/nautobot-app-frame-surfer/develop/docs/images/icon-frame-surfer.png" class="logo" height="200px">
   <br>
   <a href="https://github.com/angelopoggi/nautobot-app-frame-surfer/actions"><img src="https://github.com/angelopoggi/nautobot-app-frame-surfer/actions/workflows/ci.yml/badge.svg?branch=main"></a>
   <a href="https://docs.nbframesurfer.com/projects/frame-surfer/en/latest/"><img src="https://readthedocs.org/projects/nautobot-app-frame-surfer/badge/"></a>
@@ -26,10 +26,10 @@ To avoid extra work and temporary links, make sure that publishing docs (or merg
 > The Apps Main job randomly selects a photo and uploads it and sets it as the primary picture. This was a simple excersice in learning how to build a Nautobot App.
 
 ### Screenshots
-![Frame TVs](https://raw.githubusercontent.com/angelopoggi/nautobot-app-frame-surfer/develop/docs/images/frame_tv_model.png)
-![Unsplash](https://raw.githubusercontent.com/angelopoggi/nautobot-app-frame-surfer/develop/docs/images/unsplash_model.png)
-![Photos](https://raw.githubusercontent.com/angelopoggi/nautobot-app-frame-surfer/develop/docs/images/photos_model.png)
-![Random Job](https://raw.githubusercontent.com/angelopoggi/nautobot-app-frame-surfer/develop/docs/images/fetch_random_job.png)
+![Frame TVs](https://raw.githubusercontent.com/angelopoggi/nautobot-app-frame-surfer/main/docs/images/frame_tv_model.png)
+![Unsplash](https://raw.githubusercontent.com/angelopoggi/nautobot-app-frame-surfer/main/docs/images/unsplash_model.png)
+![Photos](https://raw.githubusercontent.com/angelopoggi/nautobot-app-frame-surfer/main/docs/images/photos_model.png)
+![Random Job](https://raw.githubusercontent.com/angelopoggi/nautobot-app-frame-surfer/main/docs/images/fetch_random_job.png)
 
 More screenshots can be found in the [Using the App](https://docs.nbframesurfer.com/projects/frame-surfer/en/latest/user/app_use_cases/) page in the documentation. Here's a quick overview of some of the app's added functionality:
 
