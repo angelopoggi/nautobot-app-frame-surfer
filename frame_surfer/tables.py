@@ -39,6 +39,7 @@ class FrameSurferFrameTVModelTable(BaseTable):
         #     "description",
         # )
 
+
 class FrameSurferUnsplashModelTable(BaseTable):
     """Table for UnsplashModel list view."""
 
@@ -60,6 +61,7 @@ class FrameSurferUnsplashModelTable(BaseTable):
             "pk",
             "name",
         )
+
 
 class FrameSurferPhotoModelTable(BaseTable):
     """Table for PhotoModel list view."""

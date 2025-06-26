@@ -7,6 +7,7 @@ from django.db import models
 from nautobot.apps.models import PrimaryModel, extras_features
 from nautobot.extras.models import SecretsGroup
 
+
 # If you want to choose a specific model to overload in your class declaration, please reference the following documentation:
 # how to chose a database model: https://docs.nautobot.com/projects/core/en/stable/plugins/development/#database-models
 # If you want to use the extras_features decorator please reference the following documentation
@@ -34,14 +35,18 @@ class FrameSurferExampleModel(PrimaryModel):  # pylint: disable=too-many-ancesto
         """Stringify instance."""
         return self.name
 
+
 @extras_features("custom_links", "custom_validators", "export_templates", "graphql", "webhooks")
 class UnsplashModel(PrimaryModel):
     name = models.CharField(max_length=256, unique=True)
     url = models.URLField()
-    access_key = models.ForeignKey(SecretsGroup, on_delete=models.PROTECT, related_name="access_token", blank=True, null=True)
+    access_key = models.ForeignKey(
+        SecretsGroup, on_delete=models.PROTECT, related_name="access_token", blank=True, null=True
+    )
 
     def __str__(self):
         return self.name
+
 
 @extras_features("custom_links", "custom_validators", "export_templates", "graphql", "webhooks")
 class FrameTV(PrimaryModel):
@@ -59,13 +64,14 @@ class FrameTV(PrimaryModel):
     def __str__(self):
         return self.name
 
+
 @extras_features("custom_links", "custom_validators", "export_templates", "graphql", "webhooks")
 class PhotoModel(PrimaryModel):
     name = models.CharField(max_length=256, unique=True)
     downloaded_at = models.DateTimeField(auto_now=True)
     thumbnail = models.CharField(max_length=512, blank=True, null=True, help_text="Path to thumbnail image")
     url = models.CharField(max_length=512, help_text="URL to the original photo")
-    tv = models.ForeignKey(FrameTV, on_delete=models.CASCADE, related_name='photos')
+    tv = models.ForeignKey(FrameTV, on_delete=models.CASCADE, related_name="photos")
     tv_file_name = models.CharField(max_length=512, blank=True, null=True, help_text="Path to the file on the TV")
 
     class Meta:
@@ -75,4 +81,3 @@ class PhotoModel(PrimaryModel):
 
     def __str__(self):
         return self.name
-

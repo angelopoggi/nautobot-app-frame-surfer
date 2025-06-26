@@ -27,6 +27,8 @@ class TestFrameSurferExampleModel(ModelTestCases.BaseModelTestCase):
 
     def test_create_framesurferexamplemodel_all_fields_success(self):
         """Create FrameSurferExampleModel with all fields."""
-        framesurferexamplemodel = models.FrameSurferExampleModel.objects.create(name="Development", description="Development Test")
+        framesurferexamplemodel = models.FrameSurferExampleModel.objects.create(
+            name="Development", description="Development Test"
+        )
         self.assertEqual(framesurferexamplemodel.name, "Development")
         self.assertEqual(framesurferexamplemodel.description, "Development Test")

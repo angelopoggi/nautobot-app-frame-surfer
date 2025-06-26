@@ -1,7 +1,9 @@
 """API serializers for frame_surfer."""
 
 from nautobot.apps.api import NautobotModelSerializer, TaggedModelSerializerMixin
+
 from frame_surfer import models
+
 
 class FrameSurferExampleModelSerializer(NautobotModelSerializer, TaggedModelSerializerMixin):
     """FrameSurferExampleModel Serializer."""
@@ -10,6 +12,7 @@ class FrameSurferExampleModelSerializer(NautobotModelSerializer, TaggedModelSeri
         model = models.FrameSurferExampleModel
         fields = "__all__"
 
+
 class FrameSurferPhotoModelSerializer(NautobotModelSerializer, TaggedModelSerializerMixin):
     """PhotoModel Serializer."""
 
@@ -17,12 +20,14 @@ class FrameSurferPhotoModelSerializer(NautobotModelSerializer, TaggedModelSerial
         model = models.PhotoModel
         fields = "__all__"
 
+
 class UnsplashModelSerializer(NautobotModelSerializer, TaggedModelSerializerMixin):
     """UnsplashModel Serializer."""
 
     class Meta:
         model = models.UnsplashModel
         fields = "__all__"
+
 
 class FrameSurferFrameTVModelSerializer(NautobotModelSerializer, TaggedModelSerializerMixin):
     """FrameSurferFrameTVModel Serializer."""

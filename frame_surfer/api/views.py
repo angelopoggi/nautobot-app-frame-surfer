@@ -16,6 +16,7 @@ class FrameSurferFrameTVModelViewSet(NautobotModelViewSet):  # pylint: disable=t
     # Option for modifying the default HTTP methods:
     # http_method_names = ["get", "post", "put", "patch", "delete", "head", "options", "trace"]
 
+
 class FrameSurferUnsplashModelViewSet(NautobotModelViewSet):  # pylint: disable=too-many-ancestors
     """UnsplashModel viewset."""
 
@@ -25,6 +26,7 @@ class FrameSurferUnsplashModelViewSet(NautobotModelViewSet):  # pylint: disable=
 
     # Option for modifying the default HTTP methods:
     # http_method_names = ["get", "post", "put", "patch", "delete", "head", "options", "trace"]
+
 
 class FrameSurferPhotoModelViewSet(NautobotModelViewSet):  # pylint: disable=too-many-ancestors
     """PhotoModel viewset."""

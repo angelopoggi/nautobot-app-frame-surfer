@@ -1,5 +1,4 @@
 # Frame Surfer
-
 <!--
 Developer Note - Remove Me!
 
@@ -23,25 +22,18 @@ To avoid extra work and temporary links, make sure that publishing docs (or merg
 
 ## Overview
 
-> Developer Note: Add a long (2-3 paragraphs) description of what the App does, what problems it solves, what functionality it adds to Nautobot, what external systems it works with etc.
+> A simple app that allows users to add their Frame TVs IP address into Nautobot, along with their Unsplash credentials using Nautobots secrets provider to fetch and display images on the Frame TV.
+> The Apps Main job randomly selects a photo and uploads it and sets it as the primary picture. This was a simple excersice in learning how to build a Nautobot App.
 
 ### Screenshots
-
-> Developer Note: Add any representative screenshots of the App in action. These images should also be added to the `docs/user/app_use_cases.md` section.
-
-> Developer Note: Place the files in the `docs/images/` folder and link them using only full URLs from GitHub, for example: `![Overview](https://raw.githubusercontent.com/Network to Code, LLC/nautobot-app-frame-surfer/develop/docs/images/app-overview.png)`. This absolute static linking is required to ensure the README renders properly in GitHub, the docs site, and any other external sites like PyPI.
+![Frame TVs](https://raw.githubusercontent.com/angelopoggi/nautobot-app-frame-surfer/develop/docs/images/frame_tv_model.png)
+![Unsplash](https://raw.githubusercontent.com/angelopoggi/nautobot-app-frame-surfer/develop/docs/images/unsplash_model.png)
+![Photos](https://raw.githubusercontent.com/angelopoggi/nautobot-app-frame-surfer/develop/docs/images/photos_model.png)
+![Random Job](https://raw.githubusercontent.com/angelopoggi/nautobot-app-frame-surfer/develop/docs/images/fetch_random_job.png)
 
 More screenshots can be found in the [Using the App](https://docs.nbframesurfer.com/projects/frame-surfer/en/latest/user/app_use_cases/) page in the documentation. Here's a quick overview of some of the app's added functionality:
 
 ![](https://raw.githubusercontent.com/Network to Code, LLC/nautobot-app-frame-surfer/develop/docs/images/placeholder.png)
-
-## Try it out!
-
-> Developer Note: Only keep this section if appropriate. Update link to correct sandbox.
-
-This App is installed in the Nautobot Community Sandbox found over at [demo.nautobot.com](https://demo.nautobot.com/)!
-
-> For a full list of all the available always-on sandbox environments, head over to the main page on [networktocode.com](https://www.networktocode.com/nautobot/sandbox-environments/).
 
 ## Documentation
 
@@ -53,14 +45,3 @@ Full documentation for this App can be found over on the [Nautobot Docs](https:/
 - [Release Notes / Changelog](https://docs.nbframesurfer.com/projects/frame-surfer/en/latest/admin/release_notes/).
 - [Frequently Asked Questions](https://docs.nbframesurfer.com/projects/frame-surfer/en/latest/user/faq/).
 
-### Contributing to the Documentation
-
-You can find all the Markdown source for the App documentation under the [`docs`](https://github.com/angelopoggi/nautobot-app-frame-surfer/tree/develop/docs) folder in this repository. For simple edits, a Markdown capable editor is sufficient: clone the repository and edit away.
-
-If you need to view the fully-generated documentation site, you can build it with [MkDocs](https://www.mkdocs.org/). A container hosting the documentation can be started using the `invoke` commands (details in the [Development Environment Guide](https://docs.nbframesurfer.com/projects/frame-surfer/en/latest/dev/dev_environment/#docker-development-environment)) on [http://localhost:8001](http://localhost:8001). Using this container, as your changes to the documentation are saved, they will be automatically rebuilt and any pages currently being viewed will be reloaded in your browser.
-
-Any PRs with fixes or improvements are very welcome!
-
-## Questions
-
-For any questions or comments, please check the [FAQ](https://docs.nbframesurfer.com/projects/frame-surfer/en/latest/user/faq/) first. Feel free to also swing by the [Network to Code Slack](https://networktocode.slack.com/) (channel `#nautobot`), sign up [here](http://slack.networktocode.com/) if you don't have an account.

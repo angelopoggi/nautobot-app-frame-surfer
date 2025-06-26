@@ -5,6 +5,7 @@ from nautobot.apps.forms import NautobotBulkEditForm, NautobotFilterForm, Nautob
 
 from frame_surfer import models
 
+
 # Frame TV MODEL FORMS
 class FrameSurferFrameTVModelForm(NautobotModelForm):  # pylint: disable=too-many-ancestors
     """FrameSurferExampleModel creation/edit form."""
@@ -43,6 +44,7 @@ class FrameSurferFrameTVModelFilterForm(NautobotFilterForm):
     )
     name = forms.CharField(required=False, label="Name")
 
+
 # UNSPLASH MODEL FORMS
 class FrameSurferUnsplashModelForm(NautobotModelForm):  # pylint: disable=too-many-ancestors
     """UnsplashModel creation/edit form."""
@@ -52,6 +54,7 @@ class FrameSurferUnsplashModelForm(NautobotModelForm):  # pylint: disable=too-ma
 
         model = models.UnsplashModel
         fields = "__all__"
+
 
 class FrameSurferUnsplashModelBulkEditForm(TagsBulkEditFormMixin, NautobotBulkEditForm):  # pylint: disable=too-many-ancestors
     """UnsplashModel bulk edit form."""
@@ -66,6 +69,7 @@ class FrameSurferUnsplashModelBulkEditForm(TagsBulkEditFormMixin, NautobotBulkEd
             "name",
         ]
 
+
 class FrameSurferUnsplashModelFilterForm(NautobotFilterForm):
     """Filter form to filter searches."""
 
@@ -79,6 +83,7 @@ class FrameSurferUnsplashModelFilterForm(NautobotFilterForm):
     )
     name = forms.CharField(required=False, label="Name")
 
+
 # PhotoModel FORMS
 class FrameSurferPhotoModelForm(NautobotModelForm):  # pylint: disable=too-many-ancestors
     """PhotoModel creation/edit form."""
@@ -88,6 +93,7 @@ class FrameSurferPhotoModelForm(NautobotModelForm):  # pylint: disable=too-many-
 
         model = models.PhotoModel
         fields = "__all__"
+
 
 class FrameSurferPhotoModelBulkEditForm(TagsBulkEditFormMixin, NautobotBulkEditForm):  # pylint: disable=too-many-ancestors
     """PhotoModel bulk edit form."""
@@ -101,6 +107,7 @@ class FrameSurferPhotoModelBulkEditForm(TagsBulkEditFormMixin, NautobotBulkEditF
         nullable_fields = [
             "name",
         ]
+
 
 class FrameSurferPhotoModelFilterForm(NautobotFilterForm):
     """Filter form to filter searches."""

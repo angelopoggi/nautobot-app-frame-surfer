@@ -18,6 +18,7 @@ class FrameSurferFrameTVModelUIViewSet(NautobotUIViewSet):
     serializer_class = serializers.FrameSurferFrameTVModelSerializer
     table_class = tables.FrameSurferFrameTVModelTable
 
+
 class FrameSurferUnsplashModelUIViewSet(NautobotUIViewSet):
     """ViewSet for FrameSurferUnsplashModel views."""
 
@@ -29,6 +30,7 @@ class FrameSurferUnsplashModelUIViewSet(NautobotUIViewSet):
     queryset = models.UnsplashModel.objects.all()
     serializer_class = serializers.UnsplashModelSerializer
     table_class = tables.FrameSurferUnsplashModelTable
+
 
 class FrameSurferPhotoModelUIViewSet(NautobotUIViewSet):
     """ViewSet for FrameSurferPhotoModel views."""
